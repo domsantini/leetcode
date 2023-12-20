@@ -30,3 +30,21 @@ class Solution:
                 return False
         
         return True
+    
+# Solution #3 using hashmap AND QUICK
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        # Get that nice, early return in
+        if len(s) != len(t):
+            return False
+
+        # Define like this so that we have default values
+        mapS, mapT = defaultdict(int), defaultdict(int)
+
+        # Add our values
+        for i in range(len(s)):
+            mapS[s[i]] += 1
+            mapT[t[i]] += 1
+        
+        # Nice and easy return
+        return mapS == mapT
